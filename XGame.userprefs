@@ -1,19 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameMain/GameComponent.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameMain/GameComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/XEngine/LXEngine.cs" Line="34" Column="28" />
+      <File FileName="Assets/Scripts/GameMain/GameComponent.cs" Line="14" Column="37" />
       <File FileName="Assets/Scripts/XEngine/Common/XSingleton.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/XEngine/Common/XObjectPool.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/XEngine/XEngine.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/XEngine/Network/XProtocol.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/XEngine/Network/XSocket.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/XEngine/Network/XProtocolMgr.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/XEngine/Common/XEvent.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameComponent.cs" line="14" column="37" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
