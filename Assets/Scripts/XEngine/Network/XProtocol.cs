@@ -7,7 +7,7 @@ namespace XEngine
 {
 	public class XProtocol
 	{
-		protected int m_ID = 0;
+		protected int m_ptID = 0;
 		private List<Action> m_lisCallback;
 
 		public XProtocol ()
@@ -15,9 +15,9 @@ namespace XEngine
 			m_lisCallback = new List<Action> ();
 		}
 
-		public int GetID()
+		public int GetProtocolID()
 		{
-			return m_ID;
+			return m_ptID;
 		}
 
 		public void RegisterCallback(Action callback)
@@ -44,7 +44,8 @@ namespace XEngine
 
 		public void Send(XSocket socket)
 		{
-
+			socket.BeginSend(m_ptID);
+			socket.EndSend();
 		}
 	}
 }

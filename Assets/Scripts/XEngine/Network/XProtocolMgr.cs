@@ -15,7 +15,7 @@ namespace XEngine
 
 		public void Register(XProtocol pt, Action callback)
 		{
-			int ptID = pt.GetID ();
+			int ptID = pt.GetProtocolID ();
 			XProtocol protocol;
 			if (!m_dicProtocol.TryGetValue (ptID, out protocol)) {
 				m_dicProtocol.Add (ptID, pt);
@@ -27,7 +27,7 @@ namespace XEngine
 
 		public void Unregister(XProtocol pt, Action callback)
 		{
-			int ptID = pt.GetID ();
+			int ptID = pt.GetProtocolID ();
 			XProtocol protocol;
 			if (m_dicProtocol.TryGetValue (ptID, out protocol)) {
 				protocol.UnregisterCallback (callback);

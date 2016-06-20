@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\XEngine\Network\XProtocol.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XProtocolMgr.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XSocket.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Network\XSocketMgr.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -66,6 +67,11 @@
  <Reference Include="UnityEditor.iOS.Extensions.Common">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
+ <Compile Include="Assets\Scripts\GameMain\Protocol\PtAccountLogin.cs" />
+ <Compile Include="Assets\Scripts\XEngine\Network\XStream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Scripts\GameMain\Protocol\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
