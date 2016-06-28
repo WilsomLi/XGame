@@ -41,7 +41,7 @@ namespace XEngine
 			return protocol;
 		}
 
-		public void OnProtocol(int ptID, byte[] stream)
+		public void OnProtocol(int ptID, XStream stream)
 		{
 			XProtocol pt;
 			if (m_dicProtocol.TryGetValue (ptID, out pt)) {

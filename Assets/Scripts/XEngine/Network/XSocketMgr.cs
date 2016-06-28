@@ -7,6 +7,8 @@ namespace XEngine
 	{
 		private List<XSocket> m_lisSocket;
 
+
+
 		public XSocketMgr()
 		{
 			m_lisSocket = new List<XSocket>();

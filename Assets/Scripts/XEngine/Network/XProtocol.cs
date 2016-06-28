@@ -37,7 +37,7 @@ namespace XEngine
 			}
 		}
 
-		public virtual void OnAnalyze(byte[] stream)
+		public virtual void OnAnalyze(XStream stream)
 		{
 
 		}

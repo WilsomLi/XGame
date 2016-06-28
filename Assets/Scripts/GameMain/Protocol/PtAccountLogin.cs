@@ -10,7 +10,7 @@ public class PtAccountLogin: XProtocol
 		m_ptID = 0x00020001;
 	}
 
-	public override void OnAnalyze(byte[] stream)
+	public override void OnAnalyze(XStream stream)
 	{
 	}
 

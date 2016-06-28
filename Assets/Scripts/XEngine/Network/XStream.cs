@@ -28,6 +28,12 @@ namespace XEngine
 		{
 			return (byte)base.ReadByte();
 		}
+
+		public int ReadInt()
+		{
+			byte[] bytes = base.rea(sizeof(int));
+			return BitConverter.ToInt32(bytes, 0);
+		}
 	}
 }
 
