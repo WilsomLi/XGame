@@ -14,7 +14,8 @@ namespace XEngine
 		private bool m_bReceiving = false;
 
 		private const int MAX_BUFFER_SIZE = 65535;
-		private const int CONNECT_TIME_OUT = 3000;
+		private const int CONNECT_TIME_OUT = 2000;
+		private const int RETRY_CONNECT_CNT = 3;
 
 		public XSocket ()
 		{
@@ -26,6 +27,7 @@ namespace XEngine
 			if (m_socket == null)
 			{
 				m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+				m_socket.SendBufferSize = MAX_BUFFER_SIZE;
 				m_socket.ReceiveBufferSize = MAX_BUFFER_SIZE;
 
 				XSocketMgr.Instance.AddSocket(this);
@@ -33,11 +35,22 @@ namespace XEngine
 
 			IPAddress ip = IPAddress.Parse(strIp);
 			IPEndPoint ipe = new IPEndPoint(ip, port);
-			IAsyncResult result = m_socket.BeginConnect(ipe, new AsyncCallback(OnConnected), m_socket);
-			bool bConnectSuccess = result.AsyncWaitHandle.WaitOne(CONNECT_TIME_OUT, true);
-			if (!bConnectSuccess)
+
+			int cnt = RETRY_CONNECT_CNT;
+			IAsyncResult result;
+			bool bConnectSuccess;
+			while (cnt-- > 0)
 			{
-				Close();
+				result = m_socket.BeginConnect(ipe, new AsyncCallback(OnConnected), m_socket);
+				bConnectSuccess = result.AsyncWaitHandle.WaitOne(CONNECT_TIME_OUT, true);
+				if (bConnectSuccess)
+				{
+					break;
+				}
+			}
+			if (cnt < 0)
+			{
+				Console.WriteLine("Socket connect fail,ip:{0},port:{1}",strIp,port);
 			}
 		}
 
@@ -45,16 +58,19 @@ namespace XEngine
 		{
 			m_socket.EndConnect(ar);
 			m_bConnected = true;
-			m_bReceiving = true;
+			m_bReceiving = false;
 		}
 
 		public void Close()
 		{
+			XSocketMgr.Instance.RemoveSocket(this);
 			if (m_socket != null && m_socket.Connected)
 			{
 				m_socket.Close();
 			}
+			m_socket = null;
 			m_bConnected = false;
+			m_bReceiving = false;
 		}
 
 		public void Send(byte[] bytes, int length)
@@ -67,7 +83,7 @@ namespace XEngine
 			}
 			catch (Exception exp)
 			{
-				Console.Write(exp);
+				Console.WriteLine(exp);
 				Close();
 			}
 		}
@@ -93,23 +109,35 @@ namespace XEngine
 		{
 			try
 			{
-				if (m_bReceiving)
+				if (!m_bReceiving)
 				{
-					m_bReceiving = false;
-					int length = m_socket.Available;
-					m_socket.BeginReceive(m_recvBuff, 0, length, SocketFlags.None, new AsyncCallback(EndRecvStream), m_socket);
+					m_bReceiving = true;
+					m_socket.BeginReceive(m_recvBuff, 0, MAX_BUFFER_SIZE, SocketFlags.None, new AsyncCallback(OnEndRecvStream), m_socket);
 				}
 			}
 			catch (Exception exp)
 			{
-				Console.Write(exp);
+				Console.WriteLine(exp);
+				Close();
 			}
 		}
 
-		private void EndRecvStream(IAsyncResult ar)
+		private void OnEndRecvStream(IAsyncResult ar)
 		{
-			m_socket.EndReceive(ar);
-			m_bReceiving = true;
+			try
+			{
+				int length = m_socket.EndReceive(ar);
+				m_bReceiving = false;
+				if (length == 0)
+				{
+					Close();
+				}
+			}
+			catch (Exception exp)
+			{
+				Console.WriteLine(exp);
+				Close();
+			}
 		}
 	}
 }

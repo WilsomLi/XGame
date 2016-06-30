@@ -7,8 +7,6 @@ namespace XEngine
 	{
 		private List<XSocket> m_lisSocket;
 
-
-
 		public XSocketMgr()
 		{
 			m_lisSocket = new List<XSocket>();
@@ -16,12 +14,15 @@ namespace XEngine
 
 		public void Destroy()
 		{
-
+			CloseAllSocket();
+			m_lisSocket.Clear();
+			m_lisSocket = null;
 		}
 
 		public void CloseAllSocket()
 		{
-			for (int i = 0; i < m_lisSocket.Count; i++)
+			int cnt = m_lisSocket.Count;
+			for (int i = 0; i < cnt; i++)
 			{
 				m_lisSocket[i].Close();
 			}

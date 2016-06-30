@@ -6,7 +6,7 @@ namespace Engine
 	public class XObjectPool
 	{
 //		private List<T> m_all = new List<T>();
-		private Stack<T> m_free = new Stack<T>();
+		//private Stack<T> m_free = new Stack<T>();
 
 		public XObjectPool ()
 		{
