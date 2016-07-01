@@ -8,7 +8,7 @@ namespace XEngine
 		private List<XSocket> m_lisSocket;
 		private XObjectPool<XStream> m_streamPool;
 
-		private const int STREAM_POOL_SIZE = 512;
+		private const int STREAM_POOL_SIZE = 128;
 
 		public XSocketMgr()
 		{
@@ -43,6 +43,16 @@ namespace XEngine
 		public void RemoveSocket(XSocket socket)
 		{
 			m_lisSocket.Remove(socket);
+		}
+
+		public XStream GetXStream()
+		{
+			return m_streamPool.Acquire();
+		}
+
+		public void ReturnXStream(XStream stream)
+		{
+			m_streamPool.Relase(stream);
 		}
 	}
 }

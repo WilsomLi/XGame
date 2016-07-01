@@ -10,6 +10,9 @@ namespace XEngine
 		private Socket m_socket;
 		private byte[] m_recvBuff;
 
+		private XStream m_recvStream;
+		private XStream m_sendStream;
+
 		private bool m_bConnected = false;
 		private bool m_bReceiving = false;
 
@@ -20,6 +23,7 @@ namespace XEngine
 		public XSocket ()
 		{
 			m_recvBuff = new byte[MAX_BUFFER_SIZE];
+			m_recvStream = XSocketMgr.Instance.GetXStream();
 		}
 
 		public void Connect(string strIp, int port)
@@ -88,14 +92,24 @@ namespace XEngine
 			}
 		}
 
-		public void BeginSend(int ptID)
+		public XStream BeginSend(int ptID)
 		{
-
+			if (m_sendStream == null)
+			{
+				m_sendStream = XSocketMgr.Instance.GetXStream();
+			}
+			m_sendStream.Reset();
+			m_sendStream.WriteInt(ptID);
+			return m_sendStream;
 		}
 
 		public void EndSend()
 		{
-
+			if (m_sendStream != null)
+			{
+				byte[] buffer = m_sendStream.GetBuffer();
+				Send(buffer, buffer.Length);
+			}
 		}
 
 		public void OnRun()
@@ -131,7 +145,13 @@ namespace XEngine
 				if (length == 0)
 				{
 					Close();
+					return;
 				}
+
+				m_recvStream.Reset();
+				m_recvStream.Write(m_recvBuff, 0, length);
+				int protoID = m_recvStream.ReadInt();
+				XProtocolMgr.Instance.OnProtocol(protoID, m_recvStream);
 			}
 			catch (Exception exp)
 			{

@@ -65,11 +65,7 @@ namespace XEngine
 
 		public void WriteBytes(byte[] bytes)
 		{
-			int length = bytes.Length;
-			for (int i = 0; i < length; i++)
-			{
-				WriteByte(bytes[i]);
-			}
+			base.Write(bytes, 0, bytes.Length);
 		}
 
 		public void WriteBool(bool value)
@@ -94,6 +90,14 @@ namespace XEngine
 		{
 			byte[] bytes = BitConverter.GetBytes(value);
 			base.Write(bytes, 0, bytes.Length);
+		}
+
+		public void WriteString(string value)
+		{
+			byte[] bytes = Encoding.UTF8.GetBytes(value);
+			int length = bytes.Length;
+			WriteInt(bytes.Length);
+			base.Write(bytes, 0, length);
 		}
 	}
 }
