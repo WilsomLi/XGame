@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XEngine
 {
-	public class XStream : MemoryStream
+	public class XStream : MemoryStream, IXResetable
 	{
 		public XStream()
 		{
@@ -12,6 +12,12 @@ namespace XEngine
 
 		public XStream(byte[] bytes) : base(bytes)
 		{
+		}
+
+		public void Reset()
+		{
+			SetLength(0);
+			Seek(0, SeekOrigin.Begin);
 		}
 
 		private byte[] ReadBytes(int size)

@@ -6,10 +6,14 @@ namespace XEngine
 	public class XSocketMgr: XSingleton<XSocketMgr>
 	{
 		private List<XSocket> m_lisSocket;
+		private XObjectPool<XStream> m_streamPool;
+
+		private const int STREAM_POOL_SIZE = 512;
 
 		public XSocketMgr()
 		{
 			m_lisSocket = new List<XSocket>();
+			m_streamPool = new XObjectPool<XStream>(STREAM_POOL_SIZE);
 		}
 
 		public void Destroy()
@@ -17,6 +21,9 @@ namespace XEngine
 			CloseAllSocket();
 			m_lisSocket.Clear();
 			m_lisSocket = null;
+
+            m_streamPool.Destroy();
+			m_streamPool = null;
 		}
 
 		public void CloseAllSocket()

@@ -12,6 +12,7 @@ public class PtAccountLogin: XProtocol
 
 	public override void OnAnalyze(XStream stream)
 	{
+        m_playerKey = stream.ReadInt();
 	}
 
 	public void Send()
