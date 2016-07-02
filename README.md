@@ -6,6 +6,6 @@ Use:
 
 UGUI  
 
-uLua  
+uLua  https://github.com/jarjin/LuaFramework_UGUI
 
 Bugly
