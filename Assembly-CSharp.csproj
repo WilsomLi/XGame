@@ -47,18 +47,23 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameMain\GameComponent.cs" />
      <Compile Include="Assets\Scripts\GameMain\Protocol\GnpAccountLogin.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Protocol\ProtocolType.cs" />
      <Compile Include="Assets\Scripts\GameMain\SDK\IPv6SupportMidleware.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Wnd\WndLogin.cs" />
      <Compile Include="Assets\Scripts\XEngine\Common\XEvent.cs" />
      <Compile Include="Assets\Scripts\XEngine\Common\XIResetable.cs" />
      <Compile Include="Assets\Scripts\XEngine\Common\XObjectPool.cs" />
      <Compile Include="Assets\Scripts\XEngine\Common\XSingleton.cs" />
      <Compile Include="Assets\Scripts\XEngine\Common\XTimer.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Config\XConfig.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Config\XConfigRow.cs" />
      <Compile Include="Assets\Scripts\XEngine\LXEngine.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XProtocol.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XProtocolMgr.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XSocket.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XSocketMgr.cs" />
      <Compile Include="Assets\Scripts\XEngine\Network\XStream.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Window\XWindow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -71,12 +76,6 @@
  <Reference Include="UnityEditor.iOS.Extensions.Common">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
- <Compile Include="Assets\Scripts\XEngine\Config\XConfig.cs" />
- <Compile Include="Assets\Scripts\XEngine\Config\XConfigRow.cs" />
- <Compile Include="Assets\Scripts\GameMain\Protocol\ProtocolType.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Scripts\XEngine\Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
