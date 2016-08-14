@@ -1,15 +1,26 @@
-﻿<Properties StartupItem="Assembly-CSharp-Editor.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/XEngine/Window/XWindow.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameMain/Wnd/WndLogin.cs">
     <Files>
-      <File FileName="Assets/Scripts/XEngine/Window/XWindow.cs" Line="16" Column="3" />
+      <File FileName="Assets/Scripts/XEngine/LXEngine.cs" Line="20" Column="3" />
+      <File FileName="Assets/Scripts/XEngine/Network/XProtocolMgr.cs" Line="18" Column="35" />
+      <File FileName="Assets/Scripts/XEngine/Common/XEvent.cs" Line="10" Column="37" />
+      <File FileName="Assets/Scripts/GameMain/Wnd/WndLogin.cs" Line="8" Column="10" />
+      <File FileName="Assets/Scripts/GameMain/GameComponent.cs" Line="7" Column="32" />
+      <File FileName="Assets/Scripts/GameMain/SDK/IPv6SupportMidleware.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameMain/Protocol/GnpAccountLogin.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameMain/Window/Window.cs" Line="44" Column="22" />
+      <File FileName="Assets/Scripts/GameMain/Window/WindowMgr.cs" Line="18" Column="3" />
+      <File FileName="Assets/Scripts/GameMain/GameMain.cs" Line="28" Column="45" />
+      <File FileName="Assets/Scripts/GameMain/Wnd/WndID.cs" Line="3" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameComponent.cs" line="14" column="37" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameComponent.cs" line="15" column="37" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/XEngine/LXEngine.cs" line="22" column="1" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/Window/WindowMgr.cs" line="34" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

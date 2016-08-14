@@ -4,7 +4,7 @@ namespace XEngine
 {
 	public class XSingleton<T> where T : class, new()
 	{
-		protected static T m_instance;
+		private static T m_instance;
 
 		public static T Instance
 		{

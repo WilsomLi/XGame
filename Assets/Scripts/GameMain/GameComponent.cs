@@ -6,11 +6,22 @@ public class GameComponent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		GameObject.DontDestroyOnLoad (this);
+		GameMain.Instance.StartUp ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		LXEngine.Instance.OnRun (Time.deltaTime);
+		GameMain.Instance.OnRun (Time.deltaTime);
+	}
+
+	void OnApplicationQuit()
+	{
+
+	}
+
+	void OnApplicationPause(bool isPause)
+	{
+
 	}
 }

@@ -20,7 +20,7 @@ namespace XEngine
 
 		public void OnEvent()
 		{
-			m_callback ();
+			m_callback();
 		}
 	}
 }

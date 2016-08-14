@@ -13,7 +13,7 @@ namespace XEngine
 			m_dicProtocol = new Dictionary<int, XProtocol> ();
 		}
 
-		public void Register(XProtocol pt, Action callback)
+		public void Register(XProtocol pt, Action callback)	
 		{
 			int ptID = pt.GetProtocolID ();
 			XProtocol protocol;

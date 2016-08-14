@@ -1,15 +1,35 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using XEngine;
 
-public class WndLogin : MonoBehaviour {
+public class WndLogin : Window {
 
-	// Use this for initialization
-	void Start () {
-	
+	private InputField m_edtName;
+	private InputField m_edtPwd;
+	private Button m_btnLogin;
+
+
+	public override void Destroy ()
+	{
+		m_btnLogin = null;
+		base.Destroy ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	protected override void InitCtrl (Transform tf)
+	{
+		m_edtName = tf.Find ("EdtName").GetComponent<InputField> ();
+		m_edtPwd = tf.Find ("EdtPwd").GetComponent<InputField> ();
+		m_btnLogin = tf.Find ("BtnLogin").GetComponent<Button>();
+	}
+
+	protected override void Register ()
+	{
+		m_btnLogin.onClick.AddListener(OnLogin);
+	}
+
+	void OnLogin()
+	{
+		Debug.Log ("Login Name:"+m_edtName.text+",Pwd:"+m_edtPwd.text);
 	}
 }
