@@ -74,7 +74,7 @@ public class Window
 		if (m_dicProto == null) {
 			m_dicProto = new Dictionary<XProtocol, Action> ();
 		}
-		XProtocolMgr.Instance.Register (proto, callback);
+		XProtocolMgr.Instance.Register<XProtocol>(callback);
 		m_dicProto.Add (proto, callback);
 	}
 }

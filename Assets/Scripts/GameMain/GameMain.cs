@@ -3,11 +3,11 @@ using XEngine;
 
 public class GameMain : XSingleton<GameMain>
 {
-	private WindowMgr m_wndMgr;
+	public static WindowMgr m_wndMgr = WindowMgr.Instance;
+	public static XProtocolMgr m_protoMgr = XProtocolMgr.Instance;
 
 	public GameMain ()
 	{
-		m_wndMgr = WindowMgr.Instance;
 	}
 
 	public void StartUp()
@@ -30,7 +30,7 @@ public class GameMain : XSingleton<GameMain>
 
 	private void RegisterProto()
 	{
-//		XProtocolMgr.Instance.Register (new GnpAccountLogin(), OnLogin);
+		m_protoMgr.Register<GnpAccountLogin>(OnLogin);
 	}
 
 	private void OnLogin()

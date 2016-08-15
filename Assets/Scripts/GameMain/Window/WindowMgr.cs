@@ -43,8 +43,7 @@ public class WindowMgr : XSingleton<WindowMgr>
 		GameObject wndCtrl = GameObject.Instantiate (prefabe);
 		wndCtrl.transform.SetParent(m_uiRoot);
 		wndCtrl.transform.localPosition = Vector3.zero;
-//		wndCtrl.transform.position = Vector3.zero;
-//		wndCtrl.transform.localScale = Vector3.one;
+		wndCtrl.transform.localScale = Vector3.one;
 		wndCtrl.layer = LayerMask.NameToLayer ("UI");
 
 		wnd.Init (wndID, wndCtrl);
