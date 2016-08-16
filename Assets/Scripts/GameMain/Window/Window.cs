@@ -6,7 +6,7 @@ using UnityEngine;
 public class Window
 {
 	private Dictionary<int,XEvent> m_dicEvent;
-	private Dictionary<XProtocol,Action> m_dicProto;
+	private Dictionary<Type,List<Action<XProtocol>>> m_dicProto;
 
 	private WndID m_wndID;
 	protected GameObject m_wndCtrl;
@@ -30,8 +30,14 @@ public class Window
 			m_dicEvent = null;
 		}
 		if (m_dicProto != null) {
-			foreach(XProtocol pt in m_dicProto.Keys) {
-				XProtocolMgr.Instance.Unregister (pt, m_dicProto[pt]);
+			List<Action<XProtocol>> lisCallback;
+			Type t;
+			foreach(Type type in m_dicProto.Keys) {
+				lisCallback = m_dicProto[type];
+				foreach (Action<XProtocol> callback in lisCallback) {
+					XProtocolMgr.Instance.Unregister<Type>(callback);
+				}
+				lisCallback.Clear();
 			}
 			m_dicProto.Clear ();
 			m_dicProto = null;
@@ -69,13 +75,23 @@ public class Window
 		m_dicEvent.Add (eventID, evnt);
 	}
 
-	protected void RegisterProto(XProtocol proto, Action callback)
+	protected void RegisterProto<T>(Action<XProtocol> callback) where T:XProtocol,new()
 	{
 		if (m_dicProto == null) {
-			m_dicProto = new Dictionary<XProtocol, Action> ();
+			m_dicProto = new Dictionary<Type, List<Action<XProtocol>>> ();
 		}
-		XProtocolMgr.Instance.Register<XProtocol>(callback);
-		m_dicProto.Add (proto, callback);
+		Type type = typeof(T);
+		List<Action<XProtocol>> listCallback;
+		if (!m_dicProto.TryGetValue(type, out listCallback))
+		{
+			listCallback = new List<Action<XProtocol>>();
+			m_dicProto[type] = listCallback;
+		}
+		if (listCallback.IndexOf(callback) == -1)
+		{
+			listCallback.Add(callback);
+			XProtocolMgr.Instance.Register<T>(callback);
+		}
 	}
 }
 

@@ -33,7 +33,7 @@ public class GameMain : XSingleton<GameMain>
 		m_protoMgr.Register<GnpAccountLogin>(OnLogin);
 	}
 
-	private void OnLogin()
+	private void OnLogin(XProtocol pt)
 	{
 	}
 

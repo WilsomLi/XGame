@@ -8,11 +8,11 @@ namespace XEngine
 	public class XProtocol
 	{
 		protected int m_ptID = 0;
-		private List<Action> m_lisCallback;
+		private List<Action<XProtocol>> m_lisCallback;
 
 		public XProtocol ()
 		{
-			m_lisCallback = new List<Action> ();
+			m_lisCallback = new List<Action<XProtocol>> ();
 		}
 
 		public int GetProtocolID()
@@ -20,12 +20,12 @@ namespace XEngine
 			return m_ptID;
 		}
 
-		public void RegisterCallback(Action callback)
+		public void RegisterCallback(Action<XProtocol> callback)
 		{
 			m_lisCallback.Add (callback);
 		}
 
-		public void UnregisterCallback(Action callback)
+		public void UnregisterCallback(Action<XProtocol> callback)
 		{
 			m_lisCallback.Remove (callback);
 		}
@@ -33,7 +33,7 @@ namespace XEngine
 		public void OnCallback()
 		{
 			for (int i = m_lisCallback.Count - 1; i >= 0; i--) {
-				m_lisCallback [i] ();
+				m_lisCallback [i] (this);
 			}
 		}
 

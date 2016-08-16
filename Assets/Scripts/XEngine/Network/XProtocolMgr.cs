@@ -13,22 +13,22 @@ namespace XEngine
 			m_dicProtocol = new Dictionary<int, XProtocol> ();
 		}
 
-		public void Register<T>(Action callback)	
+		public void Register<T>(Action<XProtocol> callback) where T : XProtocol,new()
 		{
-			XProtocol protocol = System.Activator.CreateInstance (typeof(T)) as XProtocol;
+			XProtocol protocol = new T() as XProtocol;
 			int ptID = protocol.GetProtocolID ();
-			if (!m_dicProtocol.TryGetValue (ptID, out protocol)) {
+			if (!m_dicProtocol.ContainsKey (ptID)) {
 				m_dicProtocol.Add (ptID, protocol);
-			}
+			}	
 			if (callback != null) {
 				protocol.RegisterCallback (callback);
 			}
 		}
 
-		public void Unregister(XProtocol pt,Action callback)
+		public void Unregister<T>(Action<XProtocol> callback) where T : XProtocol,new()
 		{
-			int ptID = pt.GetProtocolID ();
-			XProtocol protocol;
+			XProtocol protocol = new T() as XProtocol;
+			int ptID = protocol.GetProtocolID ();
 			if (m_dicProtocol.TryGetValue (ptID, out protocol)) {
 				protocol.UnregisterCallback (callback);
 			}

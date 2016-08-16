@@ -31,5 +31,6 @@ public class WndLogin : Window {
 	void OnLogin()
 	{
 		Debug.Log ("Login Name:"+m_edtName.text+",Pwd:"+m_edtPwd.text);
+		GameMain.m_wndMgr.CloseWindow (WndID.Login);
 	}
 }

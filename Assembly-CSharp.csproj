@@ -3,8 +3,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{F3FE54B3-0CC3-725E-EFD4-C6823A883585}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,51 +34,51 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameComponent.cs" />
-    <Compile Include="Assets\Scripts\GameMain\Protocol\GnpAccountLogin.cs" />
-    <Compile Include="Assets\Scripts\GameMain\Protocol\ProtocolType.cs" />
-    <Compile Include="Assets\Scripts\GameMain\SDK\IPv6SupportMidleware.cs" />
-    <Compile Include="Assets\Scripts\GameMain\Window\Window.cs" />
-    <Compile Include="Assets\Scripts\GameMain\Window\WindowMgr.cs" />
-    <Compile Include="Assets\Scripts\GameMain\Wnd\WndID.cs" />
-    <Compile Include="Assets\Scripts\GameMain\Wnd\WndLogin.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Common\XEvent.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Common\XIResetable.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Common\XObjectPool.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Common\XSingleton.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Common\XTimer.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Config\XConfig.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Config\XConfigRow.cs" />
-    <Compile Include="Assets\Scripts\XEngine\LXEngine.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Network\XProtocol.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Network\XProtocolMgr.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Network\XSocket.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Network\XSocketMgr.cs" />
-    <Compile Include="Assets\Scripts\XEngine\Network\XStream.cs" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>..\..\..\..\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\UnityAnalytics\UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Debugger">
-      <HintPath>Assets\Plugins\Debugger.dll</HintPath>
-    </Reference>
-    <Compile Include="Assets\Scripts\GameMain\GameMain.cs" />
+     <Compile Include="Assets\Scripts\GameComponent.cs" />
+     <Compile Include="Assets\Scripts\GameMain\GameMain.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Protocol\GnpAccountLogin.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Protocol\ProtocolType.cs" />
+     <Compile Include="Assets\Scripts\GameMain\SDK\IPv6SupportMidleware.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Window\Window.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Window\WindowMgr.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Wnd\WndID.cs" />
+     <Compile Include="Assets\Scripts\GameMain\Wnd\WndLogin.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Common\XEvent.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Common\XIResetable.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Common\XObjectPool.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Common\XSingleton.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Common\XTimer.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Config\XConfig.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Config\XConfigRow.cs" />
+     <Compile Include="Assets\Scripts\XEngine\LXEngine.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Network\XProtocol.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Network\XProtocolMgr.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Network\XSocket.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Network\XSocketMgr.cs" />
+     <Compile Include="Assets\Scripts\XEngine\Network\XStream.cs" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Debugger">
+ <HintPath>/Users/lijia/Git/XGame/Assets/Plugins/Debugger.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -87,4 +88,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
