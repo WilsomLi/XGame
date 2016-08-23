@@ -7,7 +7,7 @@ public class GnpAccountLogin: XProtocol
 	
 	public GnpAccountLogin()
 	{
-		m_ptID = (int)Protocol.GNP_ACCOUNT_LOGIN;
+		m_ptID = Protocol.GNP_ACCOUNT_LOGIN;
 	}
 
 	public int GetPlayerKey()

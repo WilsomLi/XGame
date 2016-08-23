@@ -17,6 +17,13 @@ public class GameMain : XSingleton<GameMain>
 		RegisterProto ();
 
 		m_wndMgr.OpenWindow (WndID.Login);
+
+
+		XStream stream = new XStream ();
+		stream.WriteInt (123);
+		stream.Seek (0,System.IO.SeekOrigin.Begin);
+//		stream.Seek(0,System.IO.SeekOrigin.Current);
+		m_protoMgr.OnProtocol (Protocol.GNP_ACCOUNT_LOGIN,stream);
 	}
 
 	private void LoadConfig()
@@ -33,8 +40,10 @@ public class GameMain : XSingleton<GameMain>
 		m_protoMgr.Register<GnpAccountLogin>(OnLogin);
 	}
 
-	private void OnLogin(XProtocol pt)
+	private void OnLogin(XProtocol proto)
 	{
+		GnpAccountLogin pt = proto as GnpAccountLogin;
+		Debugger.Log ("OnLogin playerKey:" + pt.GetPlayerKey ());
 	}
 
 	public void OnRun(float runSecond)

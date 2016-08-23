@@ -6,10 +6,12 @@ namespace XEngine
 {
 	public class XProtocolMgr : XSingleton<XProtocolMgr>
 	{
+		private Dictionary<Type, int> m_dicPtType;
 		private Dictionary<int, XProtocol> m_dicProtocol;
 
 		public XProtocolMgr ()
 		{
+			m_dicPtType = new Dictionary<Type, int> ();
 			m_dicProtocol = new Dictionary<int, XProtocol> ();
 		}
 
@@ -17,6 +19,8 @@ namespace XEngine
 		{
 			XProtocol protocol = new T() as XProtocol;
 			int ptID = protocol.GetProtocolID ();
+			Type type = typeof(T);
+			m_dicPtType [type] = ptID;
 			if (!m_dicProtocol.ContainsKey (ptID)) {
 				m_dicProtocol.Add (ptID, protocol);
 			}	
@@ -25,10 +29,19 @@ namespace XEngine
 			}
 		}
 
-		public void Unregister<T>(Action<XProtocol> callback) where T : XProtocol,new()
+		public void Unregister(int ptID, Action<XProtocol> callback)
 		{
-			XProtocol protocol = new T() as XProtocol;
-			int ptID = protocol.GetProtocolID ();
+			XProtocol protocol;
+			if (m_dicProtocol.TryGetValue (ptID, out protocol)) {
+				protocol.UnregisterCallback (callback);
+			}
+		}
+
+		public void Unregister<T>(Action<XProtocol> callback) where T : XProtocol
+		{
+			int ptID = 0;
+			m_dicPtType.TryGetValue (typeof(T), out ptID);
+			XProtocol protocol;
 			if (m_dicProtocol.TryGetValue (ptID, out protocol)) {
 				protocol.UnregisterCallback (callback);
 			}
@@ -48,6 +61,11 @@ namespace XEngine
 				pt.OnAnalyze (stream);
 				pt.OnCallback ();
 			}
+		}
+
+		public int GetProtocolID(Type type)
+		{
+			return m_dicPtType [type];
 		}
 	}
 }

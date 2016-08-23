@@ -31,11 +31,12 @@ public class Window
 		}
 		if (m_dicProto != null) {
 			List<Action<XProtocol>> lisCallback;
-			Type t;
+			int ptID;
 			foreach(Type type in m_dicProto.Keys) {
 				lisCallback = m_dicProto[type];
+				ptID = XProtocolMgr.Instance.GetProtocolID (type);
 				foreach (Action<XProtocol> callback in lisCallback) {
-					XProtocolMgr.Instance.Unregister<Type>(callback);
+					XProtocolMgr.Instance.Unregister(ptID, callback);
 				}
 				lisCallback.Clear();
 			}

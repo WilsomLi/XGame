@@ -1,29 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameComponent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameMain/GameMain.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameMain/GameMain.cs" Line="33" Column="1" />
-      <File FileName="Assets/Scripts/GameComponent.cs" Line="13" Column="36" />
-      <File FileName="Assets/Scripts/XEngine/Common/XSingleton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/XEngine/Network/XProtocolMgr.cs" Line="25" Column="5" />
-      <File FileName="Assets/Scripts/GameMain/Protocol/GnpAccountLogin.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameMain/Protocol/ProtocolType.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameMain/Window/Window.cs" Line="77" Column="25" />
+      <File FileName="Assets/Scripts/GameMain/GameMain.cs" Line="25" Column="49" />
+      <File FileName="Assets/Scripts/XEngine/Network/XProtocolMgr.cs" Line="64" Column="1" />
+      <File FileName="Assets/Scripts/XEngine/Network/XProtocol.cs" Line="38" Column="1" />
+      <File FileName="Assets/Scripts/GameMain/Protocol/GnpAccountLogin.cs" Line="10" Column="12" />
+      <File FileName="Assets/Scripts/GameMain/Protocol/ProtocolType.cs" Line="3" Column="15" />
+      <File FileName="Assets/Scripts/XEngine/Network/XSocket.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameMain/Window/Window.cs" Line="79" Column="85" />
       <File FileName="Assets/Scripts/GameMain/Window/WindowMgr.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/XEngine/LXEngine.cs" Line="22" Column="28" />
-      <File FileName="Assets/Scripts/XEngine/Network/XProtocol.cs" Line="25" Column="17" />
-      <File FileName="Assets/Scripts/GameMain/Wnd/WndLogin.cs" Line="35" Column="3" />
+      <File FileName="Assets/Scripts/XEngine/Network/XStream.cs" Line="44" Column="1" />
+      <File FileName="Assets/Scripts/XEngine/Network/XSocketMgr.cs" Line="11" Column="22" />
+      <File FileName="Assets/Scripts/XEngine/Config/XConfig.cs" Line="17" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameComponent.cs" line="15" column="37" />
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/Window/WindowMgr.cs" line="34" column="1" />
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameMain.cs" line="33" column="14" />
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/XEngine/Network/XProtocol.cs" line="25" column="17" />
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/XEngine/Network/XProtocolMgr.cs" line="24" column="42" />
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/XEngine/Network/XProtocolMgr.cs" line="23" column="1" />
-      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/XEngine/Network/XProtocolMgr.cs" line="20" column="1" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameMain.cs" line="33" column="67" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameMain.cs" line="54" column="54" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameMain.cs" line="49" column="49" />
+      <Breakpoint file="/Users/lijia/Git/XGame/Assets/Scripts/GameMain/GameMain.cs" line="26" column="64" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
